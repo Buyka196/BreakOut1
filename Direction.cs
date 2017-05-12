@@ -1,6 +1,6 @@
 ﻿namespace Breakout1.Enums
 {
-    public enum Directions//udirdlaga
+    public enum Directions
     {
         Up,
         UpAndLeft,

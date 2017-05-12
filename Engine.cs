@@ -1,9 +1,9 @@
 ﻿namespace Breakout1
 {
     using System;
-    using System.Threading;
+   // using System.Threading;
     using Contracts;
-    using Enums;
+  using Enums;
     using Models;
     using Models.Patterns;
 
@@ -26,12 +26,16 @@
         private static IWall wallOfBricks;
         private static IFillingPattern fillingPattern;
 
-        public Engine(Score score)
+       // public Engine(Score score)
+         public Engine(Coo score)
         {
-            this.Score = score;
+            //this.Score = score;
+            this.Coo = score;
         }
 
-        public Score Score { get; private set; }
+       // public Score Score { get; private set; }
+        public Coo Score { get; private set; }
+        internal Coo Coo { get; private set; }
 
         public void Run()
         {
@@ -68,7 +72,7 @@
                 this.ChangeBallPosition();
                 DrawBall();
                 wallOfBricks.UpdateWall(previousBallPositionX, previousBallPositionY);
-                Thread.Sleep(gameSpeed);
+                
             }
         }
 
@@ -83,7 +87,7 @@
                     
                     Console.ForegroundColor = ConsoleColor.Yellow;
 
-                    new Thread(() => Console.Beep(150, 22)).Start();
+                    
                 }
                 else
                 {
@@ -97,7 +101,7 @@
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
 
-                    new Thread(() => Console.Beep(150, 22)).Start();
+                    
                 }
                 else
                 {
@@ -111,7 +115,7 @@
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
 
-                    new Thread(() => Console.Beep(150, 22)).Start();
+                    
                 }
                 else
                 {
@@ -124,8 +128,7 @@
                 if (ChoiceOption == 4)
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
-
-                    new Thread(() => Console.Beep(150, 22)).Start();
+                    
                 }
                 else
                 {
@@ -202,7 +205,7 @@
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
 
-                    Console.Beep(150, 22);
+                   
                 }
                 else
                 {
@@ -216,35 +219,35 @@
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
 
-                    Console.Beep(150, 22);
+                   
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Cyan;
                 }
 
-                Console.SetCursorPosition(35, 15);
-                Console.WriteLine("x1");
+                //Console.SetCursorPosition(35, 15);
+                //Console.WriteLine("x1");
 
                 if (ChoiceOption == 3)
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
 
-                    Console.Beep(150, 22);
+                    
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Cyan;
                 }
 
-                Console.SetCursorPosition(35, 16);
-                Console.WriteLine("x2");
+             //   Console.SetCursorPosition(35, 16);
+               // Console.WriteLine("x2");
 
                 if (ChoiceOption == 4)
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
 
-                    Console.Beep(150, 22);
+                   
                 }
                 else
                 {
@@ -288,7 +291,7 @@
 
             if (ChoiceOption == 1)
             {
-                gameSpeed = 100;
+                gameSpeed = 200;
             }
             else if (ChoiceOption == 2)
             {
@@ -311,37 +314,37 @@
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
 
-               
 
-                this.Score.PrintBestScores();
 
+                //  this.Score.PrintBestScores();
+                this.Coo.PrintBestScores();
                 if (ChoiceOption == 1)
                 {
-                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
 
-                    Console.Beep(150, 22);
+                    
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Cyan;
                 }
 
-                Console.SetCursorPosition(40, 23);
-                Console.WriteLine("Back");
+              //  Console.SetCursorPosition(40, 23);
+                //Console.WriteLine("Back");
 
                 if (ChoiceOption == 2)
                 {
-                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
 
-                    Console.Beep(150, 22);
+                   
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Cyan;
                 }
 
-                Console.SetCursorPosition(40, 24);
-                Console.WriteLine("Exit");
+                //Console.SetCursorPosition(40, 24);
+                //Console.WriteLine("Exit");
 
                 var cki = Console.ReadKey();
 
@@ -395,30 +398,30 @@
                     previousBallPositionY = ballPositionY;
                     ballPositionY--;
                     break;
-                case Directions.UpAndLeft: // zvvn deesh
+                case Directions.UpAndLeft: // 
                     previousBallPositionX = ballPositionX;
                     previousBallPositionY = ballPositionY;
                     ballPositionX--;
                     ballPositionY--;
                     break;
-                case Directions.UpAndRight: // baruun deesh
+                case Directions.UpAndRight://
                     previousBallPositionX = ballPositionX;
                     previousBallPositionY = ballPositionY;
                     ballPositionX++;
                     ballPositionY--;
                     break;
-                case Directions.Down: // doosh
+                case Directions.Down: // Down
                     previousBallPositionX = ballPositionX;
                     previousBallPositionY = ballPositionY;
                     ballPositionY++;
                     break;
-                case Directions.DownAndRight: // baruun doosh
+                case Directions.DownAndRight: // Down right
                     previousBallPositionX = ballPositionX;
                     previousBallPositionY = ballPositionY;
                     ballPositionX++;
                     ballPositionY++;
                     break;
-                case Directions.DownAndLeft: // zvvn doosh
+                case Directions.DownAndLeft: // Down left
                     previousBallPositionX = ballPositionX;
                     previousBallPositionY = ballPositionY;
                     ballPositionX--;
@@ -426,109 +429,109 @@
                     break;
             }
 
-            if (ballPositionY == PlaygroundHeight - 2) 
+            if (ballPositionY == PlaygroundHeight - 2)
             {
                 if ((ballPositionX >= paddlePositionX + 2) &&
-                    (ballPositionX <= paddlePositionX + 4)) 
+                    (ballPositionX <= paddlePositionX + 4))
                 {
-                    new Thread(() => Console.Beep(180, 50)).Start();
 
-                    ballDirection = Directions.Up; 
+
+                    ballDirection = Directions.Up;
                 }
                 else if ((ballPositionX >= paddlePositionX) &&
-                    (ballPositionX <= paddlePositionX + 1)) // zvvn tal 2 "_" temdeg
+                    (ballPositionX <= paddlePositionX + 1)) // T
                 {
-                    new Thread(() => Console.Beep(180, 50)).Start();
 
-                    ballDirection = Directions.UpAndLeft; // zvvn talruu oih 
-                }
-                else if ((ballPositionX >= paddlePositionX + 5) &&
-                    (ballPositionX <= paddlePositionX + 6)) // baruun tal 2 "_" temdeg
-                {
-                    new Thread(() => Console.Beep(180, 50)).Start();
-
-                    ballDirection = Directions.UpAndRight; // baruun talruu oih 
-                }
-                else
-                {
-                    this.Score.SaveScore();
-                    this.MainMenu();
-                   
-                }
-            }
-
-            if (ballPositionY == 0) // bombognii deed hemjeenii tsohilt
-            {
-                if (ballDirection == Directions.Up)
-                {
-                    new Thread(() => Console.Beep(200, 250)).Start();
-
-                    ballDirection = Directions.Down; // bombog deeshee oij uruudah 'udirlaga'
-                }
-                else if (ballDirection == Directions.UpAndRight)
-                {
-                    new Thread(() => Console.Beep(200, 250)).Start();
-
-                    ballDirection = Directions.DownAndRight; //bombog baruun tiish oih udirlaga 
-                }
-                else if (ballDirection == Directions.UpAndLeft)
-                {
-                    new Thread(() => Console.Beep(200, 250)).Start();
-
-                    ballDirection = Directions.DownAndLeft; //bombog zvvn tiish oih udirlaga
-                }
-            }
-
-            if (ballPositionX == 0) // 
-            {
-                if (ballDirection == Directions.UpAndLeft)
-                {
-                    new Thread(() => Console.Beep(200, 50)).Start();
-
-                    ballDirection = Directions.UpAndRight; // 
-                }
-                else if (ballDirection == Directions.DownAndLeft)
-                {
-                    new Thread(() => Console.Beep(200, 250)).Start();
-
-                    ballDirection = Directions.DownAndRight; // 
-                }
-            }
-
-            if (ballPositionX == PlaygroundWidth - 1) // 
-            {
-                if (ballDirection == Directions.UpAndRight)
-                {
-                    new Thread(() => Console.Beep(200, 250)).Start();
 
                     ballDirection = Directions.UpAndLeft; // 
                 }
-                else if (ballDirection == Directions.DownAndRight)
+                else if ((ballPositionX >= paddlePositionX + 5) &&
+                    (ballPositionX <= paddlePositionX + 6)) // 
                 {
-                    new Thread(() => Console.Beep(200, 250)).Start();
 
-                    ballDirection = Directions.DownAndLeft; // 
+
+                    ballDirection = Directions.UpAndRight; // 
+                }
+                else
+                {
+                    this.Coo.SaveScore();
+                    this.MainMenu();
+
                 }
             }
 
-           if (ballPositionY <= wallOfBricks.Height)
+            if (ballPositionY == 0) // When the ball hits the ceiling.
             {
-                for (int i = 0; i < wallOfBricks.Height; i++)
+                if (ballDirection == Directions.Up)
                 {
-                    for (int j = 0; j < wallOfBricks.Width; j++)
+
+
+                    ballDirection = Directions.Down; // From upward direction the ball bounces off downward.
+                }
+                else if (ballDirection == Directions.UpAndRight)
+                {
+
+
+                    ballDirection = Directions.DownAndRight; // From upward right direction the ball bounces off downward right.
+                }
+                else if (ballDirection == Directions.UpAndLeft)
+                {
+
+
+                    ballDirection = Directions.DownAndLeft; // From upward left direction the ball bounces off downward left.
+                }
+            }
+
+            if (ballPositionX == 0) // When the ball hits the left wall.
+            {
+                if (ballDirection == Directions.UpAndLeft)
+                {
+
+
+                    ballDirection = Directions.UpAndRight; // From upward left direction the ball bounces off upward right.
+                }
+                else if (ballDirection == Directions.DownAndLeft)
+                {
+
+
+                    ballDirection = Directions.DownAndRight; //
+                }
+
+                if (ballPositionX == PlaygroundWidth - 1) //
+                {
+                    if (ballDirection == Directions.UpAndRight)
                     {
-                        if (ballPositionX == wallOfBricks.FilledWall[i, j].PositionX &&
-                            ballPositionY - 1 == wallOfBricks.FilledWall[i, j].PositionY &&
-                            wallOfBricks.FilledWall[i, j].getVisibility())
-                      
+
+
+                        ballDirection = Directions.UpAndLeft; // 
+                    }
+                    else if (ballDirection == Directions.DownAndRight)
+                    {
+
+
+                        ballDirection = Directions.DownAndLeft; // 
+                    }
+                }
+
+                if (ballPositionY <= wallOfBricks.Height)
+                {
+                    for (int i = 0; i < wallOfBricks.Height; i++)
+                    {
+                        for (int j = 0; j < wallOfBricks.Width; j++)
                         {
-                            wallOfBricks.FilledWall[i, j].setInvisible();
+                            if (ballPositionX == wallOfBricks.FilledWall[i, j].PositionX &&
+                                ballPositionY - 1 == wallOfBricks.FilledWall[i, j].PositionY &&
+                                wallOfBricks.FilledWall[i, j].getVisibility())
 
-                            new Thread(() => Console.Beep(450, 100)).Start();
+                            {
+                                wallOfBricks.FilledWall[i, j].setInvisible();
 
-                            BallDirectionAfterWallCollision();
 
-                            this.Score.UpdateCurrentScore();
+
+                                BallDirectionAfterWallCollision();
+
+                                this.Coo.UpdateCurrentScore();
+                            }
                         }
                     }
                 }

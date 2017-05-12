@@ -23,13 +23,13 @@
 
         public IGamer CurrentGamer { get; private set; }
 
-        public void SaveScore()
+      /*  public void SaveScore()
         {
             Console.Clear();
             Console.WriteLine("Game Over!"); // The ball did not land on the paddle.
             Console.WriteLine("Your score: {0}", this.points);
             this.CurrentGamer.GamerPoints = this.points;
-            Console.Write("Enter you name to save the score: ");
+            Console.Write("Enter you nickname to save the score: ");
             this.CurrentGamer.GamerName = Console.ReadLine();
             Console.Clear();
             this.SaveTopResult();
@@ -39,7 +39,7 @@
         public void UpdateCurrentScore()
         {
             this.points++;
-        }
+        }*/
 
         private void SaveTopResult()
         {
